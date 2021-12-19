@@ -1,6 +1,18 @@
 # speaker_brhk
 博瑞云音箱云喇叭自定义播报内容免费API接口
 
+介绍
+1.云喇叭是用来在网络程序开发中使用的设备，个人微信及支付宝收款不能使用。 2.需要有开发能力的人员才能使用，喇叭通过2G/4G/WIFI链接，通过GET/POST方式网络接口使喇叭播报收款提示。
+
+安装教程
+无需安装，使用GET POST 请求，即可直接调用
+
+使用说明
+https://www.yuque.com/docs/share/a2617233-7d39-4bda-8b77-f398420bd5bc?# 《收款云音箱云喇叭API开发接口文档（2021-10-7）》
+
+技术联调：微信 359409698 注明云音箱
+
+
 <p style="margin-left:0; margin-right:0; text-align:center"><span>&nbsp;</span><span>&nbsp;</span></p>
 
 <p style="margin-left:0; margin-right:0; text-align:justify"><span>&nbsp;</span></p>
