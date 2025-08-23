@@ -841,7 +841,93 @@ https://www.yuque.com/docs/share/a2617233-7d39-4bda-8b77-f398420bd5bc?# 《收�
 <p style="margin-left:0; margin-right:0"><span style="color:#262626">&nbsp;</span></p>
 
 <p style="margin-left:0; margin-right:0; text-align:justify"><span style="color:black">&nbsp;</span></p>
+#### 4、定时任务
 
+### 4.1、POST 请求（推荐使用）
+
+POST /task.php
+
+#### 请求参数
+|名称|类型|必选|说明|
+| --- | --- | --- | --- |
+|id|string|是|云音箱SN编号|
+|version|integer|是|按各型号标注的VERSION版本，由用户配置时选择，预留1-9供选择|
+|token|string|是|代理商的 token, 预先通过安全渠道分配，使得代理商对该云音箱 有操作权限|
+|message|string|否|播报内容。创建时必选|
+|m|integer|否|0：删除定时任务，1：创建定时任务。创建时必选|
+|at|string|否|任务执行时间 10位时间戳。创建时必选|
+|task_id|string|否|创建定时任务成功后返回的任务ID，删除时必传|
+
+### 4.2、GET 请求
+
+GET /task.php
+
+#### 请求参数
+
+
+|名称|类型|必选|说明|
+| --- | --- | - | --- |
+|id|string|是|云音箱SN编号|
+|version|integer|是|按各型号标注的VERSION版本，由用户配置时选择，预留1-9供选择|
+|token|string|是|代理商的 token, 预先通过安全渠道分配，使得代理商对该云音箱 有操作权限|
+|message|string|否|播报内容。创建时必选|
+|m|integer|否|0：删除定时任务，1：创建定时任务。创建时必选|
+|at|string|否|任务执行时间 10位时间戳。创建时必选|
+|task_id|string|否|创建定时任务成功后返回的任务ID，删除时必传|
+
+### 4.3、响应示例
+
+创建成功
+
+~~~json
+{
+  "errcode": 0,
+  "errmsg": "success",
+  "detail": {
+    "task_id": "52b83e069770e05ba0a640e6ae2a010a"
+  }
+}
+~~~
+
+创建失败
+
+~~~json
+{
+  "errcode": -1,
+  "errmsg": "创建失败,任务时间至少10秒以后",
+  "detail": null
+}
+~~~
+
+删除失败
+
+~~~json
+{
+  "errcode": -1,
+  "errmsg": "删除失败,task_id不正确",
+  "detail": null
+}
+~~~
+
+删除成功
+
+~~~json
+{
+  "errcode": 0,
+  "errmsg": "success",
+  "detail": null
+}
+~~~
+
+#### 返回数据结构
+
+状态码 **200**
+|名称|类型|必选|约束|中文名|说明|
+| --- |---|---|---|---|---|
+|» errcode|integer|true|none|none|
+|» errmsg|string|true|none|none|
+|» detail|object|true|none|none|
+|»» task_id|string|true|none|none|
 
 <h1><span>三、常见问题</span></h1>
 
